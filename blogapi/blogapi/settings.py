@@ -26,8 +26,6 @@ SECRET_KEY = 'django-insecure-in7pflmvr(%+q9gz^=c!m7e6t-7qwq62!u2u=di)el6^(c15j8
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -42,13 +40,13 @@ INSTALLED_APPS = [
     'bannersAdds',
     'newsletter',
     'trustedUsClients',
+    'blogapi',
     'rest_framework',
     'corsheaders',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -58,9 +56,13 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-CORS_ALLOW_ALL_ORIGINS = True
-CSRF_USE_SESSIONS = True
-CSRF_COOKIE_HTTPONLY = True
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_CREDENTIALS = True
+ALLOWED_HOSTS = ['*']
+CSRF_TRUSTED_ORIGINS = ['http://localhost:3000']
+
+# ACCESS_CONTROL_ALLOW_ORIGIN = 'http://localhost:3000'
+# ACCESS_CONTROL_ALLOW_METHODS = '*'
 
 
 ROOT_URLCONF = 'blogapi.urls'
